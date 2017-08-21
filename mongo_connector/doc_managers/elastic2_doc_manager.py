@@ -339,7 +339,7 @@ class DocManager(DocManagerBase):
         # Leave _id, since it's part of the original document
         doc['_id'] = doc_id
 
-    @wrap_exceptions
+    @exception_retry
     def bulk_upsert(self, docs, namespace, timestamp):
         """Insert multiple documents into Elasticsearch."""
 
